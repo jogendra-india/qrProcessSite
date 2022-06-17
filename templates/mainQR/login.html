@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+{% load static %}
+  <head>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+
+<script src="/static/js/jquery.min.js"></script>
+<link href="/static/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+<script src="/static/js/bootstrap.min.js"></script>
+
+
+
+      <style>
+
+
+body#LoginForm{ background-image:url("{% static 'mainQR/background_image.jpg' %}"); background-repeat:no-repeat; background-position:center; background-size:cover; padding:10px;}
+
+.form-heading { color:#fff; font-size:23px;}
+.panel h2{ color:#444444; font-size:18px; margin:0 0 8px 0;}
+.panel p { color:#777777; font-size:14px; margin-bottom:30px; line-height:24px;}
+.login-form .form-control {
+  background: #f7f7f7 none repeat scroll 0 0;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  font-size: 14px;
+  height: 50px;
+  line-height: 50px;
+}
+.main-div {
+  background: #ffffff none repeat scroll 0 0;
+  border-radius: 15px;
+  margin: 70px auto 30px;
+  max-width: 41%;
+  padding: 50px 70px 70px 71px;
+}
+
+.login-form .form-group {
+  margin-bottom:10px;
+}
+.login-form{ text-align:center;}
+
+.login-form  .btn.btn-primary {
+  background: #f0ad4e none repeat scroll 0 0;
+  border-color: #f0ad4e;
+  color: #ffffff;
+  font-size: 14px;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  padding: 0;
+}
+
+.botto-text {
+  color: #ffffff;
+  font-size: 14px;
+  margin: auto;
+}
+.login-form .btn.btn-primary.reset {
+  background: #ff9900 none repeat scroll 0 0;
+}
+.back { text-align: left; margin-top:10px;}
+.back a {color: #444444; font-size: 13px;text-decoration: none;}
+
+
+body, html {
+  height: 100%;
+}
+
+      </style>
+      <title>BHELEEE Installation Process</title>
+    {% load static %}
+
+    <link rel="icon" href="{% static 'bhel_logo.ico' %}">
+
+  </head>
+<body id="LoginForm">
+<div class="container">
+<div class="login-form">
+<div class="main-div">
+    <div class="panel">
+            <img src="{% static 'mainQR/bhel_logo.jpg' %}" width="120" height="100">
+    <br>
+    <br>
+
+   <h2>BHELEEE Installation Process</h2>
+   <p>Please enter your Staff No. and password</p>
+   </div>
+    <form id="Login" method="post" action="">
+	{% csrf_token %}
+
+        <div class="form-group">
+
+
+            <input type="text" class="form-control" id="username" name="username" placeholder="Staff No.">
+
+        </div>
+
+        <div class="form-group">
+
+            <input type="password" class="form-control" id="password" name="password" placeholder="DOB in DDMMYY format">
+
+        </div>
+
+        <button type="submit" class="btn btn-primary">Login</button>
+
+    </form>
+
+    {% include 'mainQR/messages.html' %}
+
+    </div>
+<p class="botto-text"> &copy;Corp. R&D, Hyd</p>
+<p class="botto-text"> Use Chrome for optimal site experience</p>
+<br>
+<br>
+<!-- <p class="botto-text"> Facing Cache issue?</p> -->
+<!-- <a class="botto-text" href="{% static 'Proxy Settings.pdf' %}"> Set Proxy Settings</p> -->
+
+
+</div></div>
+
+<script>
+    setTimeout(function () {
+            if ($('#msg').length > 0) {
+                $('#msg').remove();
+            }
+        },
+        5000
+    )
+
+</script>
+
+</body>
+
+</html>
