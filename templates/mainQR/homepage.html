@@ -35,7 +35,7 @@
 
       .mainimages {
         display: flex;
-        margin:10px;
+        margin: 10px;
 
         justify-content: center;
         background-color: rgb(21, 34, 21);
@@ -47,7 +47,7 @@
 
       .inimages {
         padding: 20px;
-        margin:10px;
+        margin: 10px;
         display: flex;
         border-style: solid;
         justify-content: center;
@@ -57,41 +57,57 @@
         width: 50%;
       }
 
-      .buttonbar{
-        display:flex;
-        justify-content:center;
-        gap:10px;
+      .buttonbar {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
       }
 
-      .selectedbutton{
-        border-radius:10px;
+      .selectedbutton {
+        border-radius: 10px;
         background-color: #0a1e3d;
-        color:white;
+        color: white;
       }
 
-      .unselectedbutton{
-        border-radius:10px;
+      .unselectedbutton {
+        border-radius: 10px;
       }
 
-      .unselectedbutton a{
-        text-decoration:none;    
-        color:black;    
+      .unselectedbutton a {
+        text-decoration: none;
+        color: black;
       }
 
-      .selectedbutton a{
-        text-decoration:none;    
-        color:white;    
+      .selectedbutton a {
+        text-decoration: none;
+        color: white;
       }
-      .unselectedbutton a:hover{
-        text-decoration:none; 
-        color:white;    
+      .unselectedbutton a:hover {
+        text-decoration: none;
+        color: white;
       }
 
       .buttonbar button:hover {
         background-color: #0a1e3d;
-        color:white;
+        color: white;
+      }
 
-      } 
+      .bodydiv{
+        margin:10px;
+        display:flex;
+        justify-content:center;
+        flex-direction:column;
+        font-size:20px;
+
+
+      }
+      .bodytitile{
+        display:flex;
+        justify-content:center;
+        font-weight:bold;
+        font-size:25px;
+      }
+
 
     </style>
 
@@ -99,18 +115,17 @@
 
     <body>
       <div class="mainheading">
-
-
-        <img
-          src="{% static 'mainQR/bhel_logo.jpg' %}"
-          width="80"
-          height="60"
-        />
+        <img src="{% static 'mainQR/bhel_logo.jpg' %}" width="80" height="60" />
 
         <div class="buttonbar">
-          <button class='selectedbutton'><a href='{% url "home_page" id=staff_no %}'>Home Page </a></button>
-          <button class='unselectedbutton' ><a href='{% url "index_page" id=staff_no %}'>BHELQEEE Installation Process </a></button>
-  
+          <button class="selectedbutton">
+            <a href='{% url "home_page" id=staff_no %}'>System Overview </a>
+          </button>
+          <button class="unselectedbutton">
+            <a href='{% url "index_page" id=staff_no %}'
+              >Installation Guide
+            </a>
+          </button>
         </div>
 
         <div>
@@ -124,179 +139,102 @@
           >
         </div>
       </div>
+    </br>
 
-      
+      <div class="bodydiv">
+        <span class='bodytitile'>System Overview and Hardware Requirement</span>
+      </br>
+        <span>
 
+          1) BHEL QR-based Employee Entry/Exit System (BHELQEEE) is developed in lieu of
+          the third party supplied biometric-based attendance system to save huge expenditure 
+          being incurred on the annual maintenance of these systems.
+          <br>
 
-      <div class="mainimages">
-        <span class="imagesHeadings"> Step 1 (Download MySQL community server) </span>
-      </div>
-      <div class="inimages">
-        <img src="{% static 'mainQR/1.png' %}" class="imagesize" />
-      </div>
+          2) The in-house developed system can cater to the end-to-end attendance requirement of any BHEL office/sites/units across India.
+        </br>
+        3) A unique QR code is created for each employee, which can be downloaded from ESS and used in the form of a hard copy or in the mobile phone for daily scanning on BHELQEEE system.
+      </br>
+      4) A centralized application is created on ESS for employees usage where they can see their attendance and get the absences regularized from their controlling officers.
+    </br>
+        5) The system is already in operation at various units like Corporate R&D-Hyderabad, Corp. Office 
+        Siri Fort-Delhi, Noida Township, PEM Noida, ASSCP Gurgaon, CLD Noida, 06 RODs i.e. Chandigarh, 
+        Chennai, Mumbai, Kolkata, Jaipur and Lucknow. The system has a proven track record of reliable operation by processing more than 20 Lakhs QR scans till now.
+  </br>
+</br>
+        
+        BHELQEEE is easy to setup with the minimal hardware requirement as listed below:
+</br>
+</br>
 
-      <div class="inimages">
-        <img src="{% static 'mainQR/2.png' %}" class="imagesize" />
-      </div>
+<style type="text/css">
+  .tg  {border-collapse:collapse;border-color:#ccc;border-spacing:0;margin:0px auto;}
+  .tg td{background-color:#fff;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+    font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:4px 6px;word-break:normal;}
+  .tg th{background-color:#f0f0f0;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+    font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:4px 6px;word-break:normal;}
+  .tg .tg-fuxe{border-color:inherit;font-size:18px;text-align:left;vertical-align:top}
+  .tg .tg-cyr5{background-color:#f9f9f9;border-color:inherit;font-size:18px;text-align:left;vertical-align:top}
+  @media screen and (max-width: 767px) {.tg {width: auto !important;}.tg col {width: auto !important;}.tg-wrap {overflow-x: auto;-webkit-overflow-scrolling: touch;margin: auto 0px;}}</style>
+  <div class="tg-wrap"><table class="tg" style="undefined;table-layout: fixed; width: 893px">
+  <colgroup>
+  <col style="width: 103px">
+  <col style="width: 285px">
+  <col style="width: 505px">
+  </colgroup>
+  <thead>
+    <tr>
+      <th class="tg-fuxe">   <br><span style="font-weight:bold">Hardware   </span></th>
+      <th class="tg-fuxe">   <br><span style="font-weight:bold">Specification</span>   </th>
+      <th class="tg-fuxe">   <br><span style="font-weight:bold">Remarks</span>   </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="tg-cyr5">&nbsp;&nbsp;&nbsp;<br>Computer&nbsp;&nbsp;&nbsp;</td>
+      <td class="tg-cyr5">&nbsp;&nbsp;&nbsp;<br>PC (4GB RAM) running on Windows 7/8 or 10.&nbsp;&nbsp;&nbsp;</td>
+      <td class="tg-cyr5">&nbsp;&nbsp;&nbsp;<br>For NCR offices, System should be running on Admin account.&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+      <td class="tg-fuxe">&nbsp;&nbsp;&nbsp;<br>Webcam&nbsp;&nbsp;&nbsp;</td>
+      <td class="tg-fuxe">&nbsp;&nbsp;&nbsp;<br>Preferably Logitech B525/C525&nbsp;&nbsp;&nbsp;</td>
+      <td class="tg-fuxe">&nbsp;&nbsp;&nbsp;<br>One system can accommodate two webcams.&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+      <td class="tg-cyr5">&nbsp;&nbsp;&nbsp;<br>UPS&nbsp;&nbsp;&nbsp;</td>
+      <td class="tg-cyr5">&nbsp;&nbsp;&nbsp;<br>2 KVA&nbsp;&nbsp;&nbsp;</td>
+      <td class="tg-cyr5">&nbsp;&nbsp;&nbsp;<br>For uninterrupted power supply.&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+      <td class="tg-fuxe">&nbsp;&nbsp;&nbsp;<br>LAN&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      <td class="tg-fuxe">&nbsp;&nbsp;&nbsp;<br>--&nbsp;&nbsp;&nbsp;</td>
+      <td class="tg-fuxe">&nbsp;&nbsp;&nbsp;<br>PC should be running on BHEL network.&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+  </tbody>
+  </table></div>
+</br>
+  <b>Note:</b>
+</br>
+•	At least one person with IT knowledge should be deputed for system maintenance and for performing Level 1 troubleshooting in case of any technical issues.
+</br>
+•	Remote Desktop Connection should be enabled for Level 2 support from Corp. R&D.
+</br>
+</br>
+To install the system at your location, please follow the process given in the 
 
-      <div class="inimages">
-        <img src="{% static 'mainQR/3.png' %}" class="imagesize" />
-      </div>
+  <a href='{% url "index_page" id=staff_no %}'
+    >Installation Guide
+  </a>
+</button> tab.
 
-      <div class="mainimages">
-        <span class="imagesHeadings"> Step 2 (Download C++ Redistributable 2013) </span>
-      </div>
-      <div class="inimages">
-        <img src="{% static 'mainQR/4.png' %}" class="imagesize" />
-      </div>
-
-      <div class="inimages">
-        <img src="{% static 'mainQR/5.png' %}" class="imagesize" />
-      </div>
-
-      <div class="inimages">
-        <img src="{% static 'mainQR/6.png' %}" class="imagesize" />
-      </div>
-
-      <div class="mainimages">
-        <span class="imagesHeadings"> Step 3 (Download C++ Redistributable 2015-2022)</span>
-      </div>
-      <div class="inimages">
-        <img src="{% static 'mainQR/7.png' %}" class="imagesize" />
-      </div>
-      <div class="inimages">
-        <img src="{% static 'mainQR/8.png' %}" class="imagesize" />
-      </div>
-      <div class="inimages">
-        <img src="{% static 'mainQR/9.png' %}" class="imagesize" />
-      </div>
-
-
-      <div class="mainimages">
-        <span class="imagesHeadings"> Step 4 (Install all 03 downloaded C++ Redistributables)</span>
-      </div>
-
-      <div class="inimages">
-        <img src="{% static 'mainQR/10.png' %}" class="imagesize" />
-      </div>
-
-      <div class="inimages">
-        <img src="{% static 'mainQR/10.5.png' %}" class="imagesize" />
-      </div>
-
-      <div class="mainimages">
-        <span class="imagesHeadings"> Step 5 - Install MySQL server file (For Windows 8 only) </span>
-      </div>
-      <div class="inimages">
-        <img src="{% static 'mainQR/11.png' %}" class="imagesize" />
-      </div>
-
-      <div class="inimages">
-        <img src="{% static 'mainQR/12.png' %}" class="imagesize" />
-      </div>
-
-
-      <div class="inimages">
-        <img src="{% static 'mainQR/13.png' %}" class="imagesize" />
-      </div>
-
-      <div class="inimages">
-        <img src="{% static 'mainQR/18.png' %}" class="imagesize" />
-      </div>
-
-      <div class="inimages">
-        <img src="{% static 'mainQR/19.png' %}" class="imagesize" />
-      </div>
-
-
-      <div class="inimages">
-        <img src="{% static 'mainQR/20.png' %}" class="imagesize" />
-      </div>
-      <div class="inimages">
-        <img src="{% static 'mainQR/21.png' %}" class="imagesize" />
-      </div>
-
-
-
-      <div class="mainimages">
-        <span class="imagesHeadings"> Step 6 (Install MySQL server file) </span>
-      </div>
-      <div class="inimages">
-        <img src="{% static 'mainQR/22.png' %}" class="imagesize" />
-      </div>
-      <div class="inimages">
-        <img src="{% static 'mainQR/23.png' %}" class="imagesize" />
-      </div>
-      <div class="inimages">
-        <img src="{% static 'mainQR/24.png' %}" class="imagesize" />
-      </div>
-      <div class="inimages">
-        <img src="{% static 'mainQR/25.png' %}" class="imagesize" />
-      </div>
-      <div class="inimages">
-        <img src="{% static 'mainQR/26.png' %}" class="imagesize" />
-      </div>
-      <div class="inimages">
-        <img src="{% static 'mainQR/27.png' %}" class="imagesize" />
-      </div>
-      <div class="inimages">
-        <img src="{% static 'mainQR/28.png' %}" class="imagesize" />
-      </div>
-      <div class="inimages">
-        <img src="{% static 'mainQR/29.png' %}" class="imagesize" />
-      </div>
-      <div class="inimages">
-        <img src="{% static 'mainQR/30.png' %}" class="imagesize" />
-      </div>
-      <div class="inimages">
-        <img src="{% static 'mainQR/31.png' %}" class="imagesize" />
-      </div>
-
-      <div class="inimages">
-        <img src="{% static 'mainQR/32.png' %}" class="imagesize" />
-      </div>
-      <div class="inimages">
-        <img src="{% static 'mainQR/33.png' %}" class="imagesize" />
-      </div>
+</br>
+</br>
+</br>
 
 
-      <div class="mainimages">
-        <span class="imagesHeadings"> Step 7 (Check Network connectivity and ip address) </span>
-      </div>
 
-      <div class="inimages">
-        <img src="{% static 'mainQR/34.png' %}" class="imagesize" />
-      </div>
-
-      <div class="inimages">
-        <img src="{% static 'mainQR/35.png' %}" class="imagesize" />
-      </div>
-
-      <div class="inimages">
-        <img src="{% static 'mainQR/36.png' %}" class="imagesize" />
-      </div>
-
-      <div class="mainimages">
-        <span class="imagesHeadings"> Step 8 </span>
-      </div>
-<div class="mainimages">
-        <span class="imagesHeadings">         After completing the 07 steps, Please mail the ip address (noted in above step) to dhaka@bhel.in for accessing the link to download BHELQEEE .zip file and then progress on the final Step 9.
         </span>
       </div>
-
-      <div class="mainimages">
-        <span class="imagesHeadings"> Step 9 (Creating application shortcut) </span>
-      </div>
-      <div class="inimages">
-        <img src="{% static 'mainQR/37.png' %}" class="imagesize" />
-      </div>
-
-      <div class="inimages">
-        <img src="{% static 'mainQR/38.png' %}" class="imagesize" />
-      </div>
-     
-
-
     </body>
   </head>
 </html>

@@ -37,7 +37,7 @@ def loginPage(request):
             if str(user)== 'adminhr':
                 return HttpResponseRedirect("/team/{}".format(user))
             else:
-                return HttpResponseRedirect("/index/{}".format(user))
+                return HttpResponseRedirect("/home/{}".format(user))
 
         else:
             messages.error(request, 'Staff No. or Password is incorrect!!')
