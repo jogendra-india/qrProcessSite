@@ -78,9 +78,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', 
         'NAME': 'qrsite',
-        'USER': 'root',
+        'USER': 'bars',
         'PASSWORD': 'Bhel@123',
-        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
+        'HOST': '10.9.100.109',   # Or an IP Address that your DB is hosted on
         'PORT': '3306',
     }
 }
@@ -140,4 +140,5 @@ MESSAGE_TAGS = {
     messages.WARNING: 'alert-warning',
     messages.ERROR: 'alert-danger',
 }
+SESSION_EXPIRE_AT_BROWSER_CLOSE=True
 

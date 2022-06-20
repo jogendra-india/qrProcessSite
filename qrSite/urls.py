@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from mainQR.views import loginPage,index,logoutUser
+from mainQR.views import loginPage,index,logoutUser,homepage
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
@@ -24,6 +24,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('login',loginPage,name='login'),
     path('index/<str:id>',index,name="index_page"),
+    path('home/<str:id>',homepage,name="home_page"),
+
     path('logout', logoutUser,name='logout'),
 
 

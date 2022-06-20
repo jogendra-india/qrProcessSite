@@ -23,7 +23,7 @@ def loginPage(request):
 
     check_logged_in = str(request.user)
     if check_logged_in != "AnonymousUser":
-        return HttpResponseRedirect("/index/{}".format(check_logged_in))
+        return HttpResponseRedirect("/home/{}".format(check_logged_in))
 
     # print('this is',request.POST)
 
@@ -91,7 +91,42 @@ def index(request,id):
 
     #     pass
 
-    context={"name":name,'admin':admin,'unit':unit}
+    context={"name":name,'admin':admin,'unit':unit,'staff_no':id}
 
     
     return render(request,"mainQR/index.html",context)
+
+
+
+@login_required(login_url='login')
+def homepage(request,id):
+
+    if id != str(request.user):
+        return redirect("/logout")
+
+    # try:
+    mydb_db = mysql.connector.connect(
+        # host="localhost", user="root", password="Bhel@123",
+        host=settings.DATABASES['default']['HOST'], user=settings.DATABASES['default']['USER'], password=settings.DATABASES['default']['PASSWORD'],
+        database="qrsite")
+
+    mycursor = mydb_db.cursor()
+
+    
+    sql_query = "Select id,name, dob, unit,admin from emp_details where staff_no='{}'".format(id)
+
+    mycursor.execute(sql_query)
+    
+    my_result = mycursor.fetchall()
+
+    for i in my_result:
+        row_id,name, dob, unit,admin=i[0],i[1],i[2],i[3],i[4]
+        
+    # except:
+
+    #     pass
+
+    context={"name":name,'admin':admin,'unit':unit,'staff_no':id}
+
+    
+    return render(request,"mainQR/homepage.html",context)
