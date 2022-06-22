@@ -33,6 +33,24 @@
         text-decoration: none;
       }
 
+      .grid-container {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        padding: 10px;
+        justify-content:center;
+        align-items:center;
+      }
+      .grid-item {
+        padding: 10px;
+        font-size: 30px;
+      }
+
+      .item1 {
+        grid-column-start: 1;
+        grid-column-end: 3;
+      }
+      
+
       .mainimages {
         display: flex;
         margin: 10px;
@@ -45,17 +63,20 @@
         font-size: 25px;
       }
 
+      .inimagess{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+      }
+
       .inimages {
-        padding: 20px;
         margin: 10px;
+
         display: flex;
-        border-style: solid;
         justify-content: center;
       }
 
-      .imagesize {
-        width: 50%;
-      }
+
 
       .buttonbar {
         display: flex;
@@ -93,8 +114,8 @@
       }
 
       .bodydiv{
-        margin:10px;
-        display:flex;
+        margin-left:20px;
+        display:flexbox;
         justify-content:center;
         flex-direction:column;
         font-size:20px;
@@ -138,29 +159,62 @@
             ></span
           >
         </div>
+
+        
       </div>
+
+      
     </br>
 
-      <div class="bodydiv">
-        <span class='bodytitile'>System Overview and Hardware Requirement</span>
-      </br>
-        <span>
+    <div class="grid-container">
 
-          1) BHEL QR-based Employee Entry/Exit System (BHELQEEE) is developed in lieu of
-          the third party supplied biometric-based attendance system to save huge expenditure 
-          being incurred on the annual maintenance of these systems.
-          <br>
+      <div class="item1">
 
-          2) The in-house developed system can cater to the end-to-end attendance requirement of any BHEL office/sites/units across India.
+        <div class="bodydiv">
+          <span class='bodytitile'>System Overview</span>
         </br>
-        3) A unique QR code is created for each employee, which can be downloaded from ESS and used in the form of a hard copy or in the mobile phone for daily scanning on BHELQEEE system.
-      </br>
-      4) A centralized application is created on ESS for employees usage where they can see their attendance and get the absences regularized from their controlling officers.
+          <span>
+
+            <ul>
+
+              <li> BHEL QR-based Employee Entry/Exit System (BHELQEEE) is developed in lieu of
+              the third party supplied biometric-based attendance system to save huge expenditure 
+              being incurred on the annual maintenance of these systems. </li>
+    
+              <li>The in-house developed system can cater to the end-to-end attendance requirement of any BHEL office/sites/units across India. </li>
+                <li> A unique QR code is created for each employee, which can be downloaded from ESS and used in the form of a hard copy or in the mobile phone for daily scanning on BHELQEEE system.</li>
+                  <li> A centralized application is created on ESS for employees usage where they can see their attendance and get the absences regularized from their controlling officers.</li>
+                    <li> The system is already in operation at various units like Corporate R&D-Hyderabad, Corp. Office 
+            Siri Fort-Delhi, Noida Township, PEM Noida, ASSCP Gurgaon, CLD Noida, 06 RODs i.e. Chandigarh, 
+            Chennai, Mumbai, Kolkata, Jaipur and Lucknow. It has a proven track record of reliable operation and processed more than 20 Lakhs QR scans till now. </li>
+
+            </ul>
+  
     </br>
-        5) The system is already in operation at various units like Corporate R&D-Hyderabad, Corp. Office 
-        Siri Fort-Delhi, Noida Township, PEM Noida, ASSCP Gurgaon, CLD Noida, 06 RODs i.e. Chandigarh, 
-        Chennai, Mumbai, Kolkata, Jaipur and Lucknow. The system has a proven track record of reliable operation by processing more than 20 Lakhs QR scans till now.
-  </br>
+  </div>
+
+
+      </div>
+      
+
+
+
+    <div class="grid-item">
+
+      <div class="inimagess">
+        <img src="{% static 'mainQR/Picture1.png' %}" class="imagesizes" width="90%"
+        height="90%"/>
+      </div>
+    </div>
+
+  </div>
+
+      
+
+  
+<div class="bodydiv">
+
+  <b>Hardware Requirements:</b>
 </br>
         
         BHELQEEE is easy to setup with the minimal hardware requirement as listed below:
@@ -215,19 +269,20 @@
 </br>
   <b>Note:</b>
 </br>
-•	At least one person with IT knowledge should be deputed for system maintenance and for performing Level 1 troubleshooting in case of any technical issues.
-</br>
-•	Remote Desktop Connection should be enabled for Level 2 support from Corp. R&D.
-</br>
-</br>
-To install the system at your location, please follow the process given in the 
+<ul>
 
-  <a href='{% url "index_page" id=staff_no %}'
-    >Installation Guide
-  </a>
-</button> tab.
 
+</ul>
+<li> At least one person with IT knowledge should be deputed for system maintenance and for performing Level 1 troubleshooting in case of any technical issues. </li>
+<li>	Remote Desktop Connection should be enabled for Level 2 support from Corp. R&D. </li>
+
+<li> To install the system at your location, please follow the process given in the Installation Guide tab. </li>
 </br>
+{% comment %} Link: <a href='{% url "index_page" id=staff_no %}'>
+  Installation Guide
+  </a>  {% endcomment %}
+
+{% comment %} </br> {% endcomment %}
 </br>
 </br>
 
