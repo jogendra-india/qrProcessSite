@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <script src="/static/js/jquery.min.js"></script>
+    <link
+      href="/static/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrap-css"
+    />
+
+    <script src="/static/js/bootstrap.min.js"></script>
+
+    <style>
+      .mainheading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 30px;
+        padding-top: 10px;
+        padding-right: 20px;
+        padding-bottom: 10px;
+        font-size: 20px;
+        font-weight: bold;
+        background-color: rgb(214, 214, 228);
+      }
+      .logoutbutton {
+        font-size: 20px;
+        color: red;
+        text-decoration: none;
+      }
+
+      .grid-container {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        padding: 10px;
+        justify-content:center;
+        align-items:center;
+      }
+      .grid-item {
+        padding: 10px;
+        font-size: 30px;
+      }
+
+      .item1 {
+        grid-column-start: 1;
+        grid-column-end: 3;
+      }
+      
+
+      .mainimages {
+        display: flex;
+        margin: 10px;
+
+        justify-content: center;
+        background-color: rgb(21, 34, 21);
+      }
+      .imagesHeadings {
+        color: white;
+        font-size: 25px;
+      }
+
+      .inimagess{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+      }
+
+      .inimages {
+        margin: 10px;
+
+        display: flex;
+        justify-content: center;
+      }
+
+
+
+      .buttonbar {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .selectedbutton {
+        border-radius: 10px;
+        background-color: #0a1e3d;
+        color: white;
+      }
+
+      .unselectedbutton {
+        border-radius: 10px;
+      }
+
+      .unselectedbutton a {
+        text-decoration: none;
+        color: black;
+      }
+
+      .selectedbutton a {
+        text-decoration: none;
+        color: white;
+      }
+      .unselectedbutton a:hover {
+        text-decoration: none;
+        color: white;
+      }
+
+      .buttonbar button:hover {
+        background-color: #0a1e3d;
+        color: white;
+      }
+
+      .bodydiv{
+        margin-left:20px;
+        display:flexbox;
+        justify-content:center;
+        flex-direction:column;
+        font-size:20px;
+
+
+      }
+      .bodytitile{
+        display:flex;
+        justify-content:center;
+        font-weight:bold;
+        font-size:25px;
+      }
+
+      .bodydivtemp{
+        margin-left:20px;
+        display:flexbox;
+        justify-content:center;
+        flex-direction:column;
+        font-size:20px;
+
+
+      }
+      .bodytitiletemp{
+        display:flex;
+        justify-content:center;
+        font-weight:bold;
+        font-size:25px;
+        color:red;
+      }
+
+
+
+    </style>
+
+    <title>BHELQEEE System Heartbeat</title>
+    {% load static %}
+
+    <link rel="icon" href="{% static 'bhel_logo.ico' %}">
+
+
+    <body>
+      <div class="mainheading">
+        <img src="{% static 'mainQR/bhel_logo.jpg' %}" width="80" height="60" />
+
+        <div class="buttonbar">
+          <button class="unselectedbutton">
+            <a href='{% url "home_page" id=staff_no %}'>System Overview </a>
+          </button>
+          <button class="unselectedbutton">
+            <a href='{% url "index_page" id=staff_no %}'
+              >Installation Guide
+            </a>
+          </button>
+
+          <button class="selectedbutton">
+            <a href='{% url "live_status" id1=staff_no %}'
+              >System Heartbeat Monitor
+            </a>
+          </button>
+
+        </div>
+
+        <div>
+          <span>{{ name }} &nbsp;</span>
+          <span class="logoutbutton"
+            ><a
+              href="{% url 'logout' %}"
+              style="color: #ff0000; font-size: 20px; text-decoration: none"
+              >Logout</a
+            ></span
+          >
+        </div>
+
+        
+      </div>
+
+      
+    </br>
+
+
+      <div class="item1">
+
+        <div class="bodydiv">
+          <span class='bodytitile'>Live Status &nbsp;<a href='{% url "live_status" id1=staff_no %}' style="text-decoration:none;font-size:20px;color:green; border-style:solid;border-width:1px;padding:2px; border-radius:5px"> Refresh </a></span> 
+        </br>
+
+      </div>
+      
+
+  </div>
+  
+  {% if not livedetails.items %}
+
+  <div class="item1">
+
+    <div class="bodydivtemp">
+      <span class='bodytitiletemp'>Sorry, No data is available</span>
+    </br>
+
+  </div>
+
+
+
+  {% else %}
+
+  <style type="text/css">
+    .tg  {border-collapse:collapse;border-spacing:0;margin:0px auto;}
+    .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+      overflow:hidden;padding:10px 5px;word-break:normal;}
+    .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+      font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+    .tg .tg-0lax{text-align:left;vertical-align:top}
+    @media screen and (max-width: 767px) {.tg {width: auto !important;}.tg col {width: auto !important;}.tg-wrap {overflow-x: auto;-webkit-overflow-scrolling: touch;margin: auto 0px;}}</style>
+    <div class="tg-wrap"><table class="tg">
+    <thead>
+      <tr>
+        <th class="tg-0lax"><span style="font-weight:bold">Sr. No.</span></th>
+
+        <th class="tg-0lax"><span style="font-weight:bold">Location</span></th>
+        <th class="tg-0lax"><span style="font-weight:bold">IP Address</span></th>
+        <th class="tg-0lax"><span style="font-weight:bold">Status</span></th>
+        <th class="tg-0lax"><span style="font-weight:bold">Last Updated</span></th>
+      </tr>
+    </thead>
+    <tbody>
+
+      
+
+        {% for key,value in livedetails.items %}
+        <tr>
+        
+
+        {% if value.1 == '1' %}
+
+        <td class="tg-0lax" style="color:#036400">{{ forloop.counter }}</td>
+
+
+        <td class="tg-0lax" style="color:#036400">{{value.0}}</td>
+        <td class="tg-0lax" style="color:#036400">{{key}}</td>
+
+        <td class="tg-0lax"><span style="color:#036400">Online</span></td>
+        <td class="tg-0lax" style="color:#036400">{{value.2}}</td>
+
+
+
+        {% else %}
+
+        <td class="tg-0lax" style="color:#CB0000">{{ forloop.counter }}</td>
+
+
+        <td class="tg-0lax" style="color:#CB0000">{{value.0}}</td>
+        <td class="tg-0lax" style="color:#CB0000">{{key}}</td>
+
+        <td class="tg-0lax"><span style="color:#CB0000">Offline</span></td>
+        <td class="tg-0lax" style="color:#CB0000">{{value.2}}</td>
+
+
+
+        {% endif %}
+
+  
+
+      </tr>
+
+        {% endfor %}
+      
+    </tbody>
+    </table></div>
+
+  {% endif %}
+
+  
+</br>
+</br>
+
+
+
+        </span>
+      </div>
+    </body>
+  </head>
+</html>

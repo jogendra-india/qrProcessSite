@@ -134,6 +134,12 @@
 
     <title>BHELQEEE Homepage</title>
 
+    
+    {% load static %}
+
+    <link rel="icon" href="{% static 'bhel_logo.ico' %}">
+
+
     <body>
       <div class="mainheading">
         <img src="{% static 'mainQR/bhel_logo.jpg' %}" width="80" height="60" />
@@ -147,6 +153,14 @@
               >Installation Guide
             </a>
           </button>
+
+          <button class="unselectedbutton">
+            <a href='{% url "live_status" id1=staff_no %}'
+              >System Heartbeat Monitor
+            </a>
+          </button>
+
+
         </div>
 
         <div>

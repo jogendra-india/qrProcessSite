@@ -141,4 +141,4 @@ MESSAGE_TAGS = {
     messages.ERROR: 'alert-danger',
 }
 SESSION_EXPIRE_AT_BROWSER_CLOSE=True
-
+TIME_ZONE = 'Asia/Kolkata'

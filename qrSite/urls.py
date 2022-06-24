@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from mainQR.views import loginPage,index,logoutUser,homepage,download_file
+from mainQR.views import loginPage,index,logoutUser,homepage,download_file,liveStatus
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
@@ -26,8 +26,7 @@ urlpatterns = [
     path('index/<str:id>',index,name="index_page"),
     path('home/<str:id>',homepage,name="home_page"),
     path('downloadOracle/', download_file,name="download_oracle"),
-
-
+    path('live/<str:id1>',liveStatus,name="live_status"),
     path('logout', logoutUser,name='logout'),
 
 
