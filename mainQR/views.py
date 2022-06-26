@@ -224,7 +224,7 @@ def emp_liveStatus():
 
                     cursor_new = mydb_db_temp_new.cursor()
 
-                    queries ="update livemonitoring set status='{}',last_checked='{}' where id={}".format('1',dtString_dbb,each_one[0])
+                    queries ="update livemonitoring set status='{}',last_checked='{}',last_online='{}' where id={}".format('1',dtString_dbb,dtString_dbb,each_one[0])
 
                     cursor_new.execute(queries)
                     mydb_db_temp_new.commit()
@@ -290,7 +290,7 @@ def liveStatus(request,id1):
 
     if int(admin) == 0:
 
-        sql_query = "Select ip,location,auth,status,last_checked from livemonitoring"
+        sql_query = "Select ip,location,auth,status,last_checked,last_online from livemonitoring"
         mycursor.execute(sql_query)
         my_result = mycursor.fetchall()
         
@@ -300,18 +300,18 @@ def liveStatus(request,id1):
                 if ',' in each_entry[2]:
                     splitted=each_entry[2].split(',')
                     if id1 in splitted:
-                        dict_to_show[each_entry[0]]=[each_entry[1],each_entry[3],each_entry[4]]
+                        dict_to_show[each_entry[0]]=[each_entry[1],each_entry[3],each_entry[4],each_entry[5]]
                 elif each_entry[2]== id1:
-                    dict_to_show[each_entry[0]]=[each_entry[1],each_entry[3],each_entry[4]]
+                    dict_to_show[each_entry[0]]=[each_entry[1],each_entry[3],each_entry[4],each_entry[5]]
 
     else:
-        sql_query = "Select ip,location,auth,status,last_checked from livemonitoring"
+        sql_query = "Select ip,location,auth,status,last_checked,last_online from livemonitoring"
 
         mycursor.execute(sql_query)
         
         my_result = mycursor.fetchall()
         for each_entry in my_result:
-            dict_to_show[each_entry[0]]=[each_entry[1],each_entry[3],each_entry[4]]
+            dict_to_show[each_entry[0]]=[each_entry[1],each_entry[3],each_entry[4],each_entry[5]]
 
     if id1 != str(request.user):
         return redirect("/logout")
