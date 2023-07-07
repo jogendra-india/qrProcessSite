@@ -1,3 +1,4 @@
 
 *.pyc
 static/mainQR/oracle_files.zip
+*.pyc

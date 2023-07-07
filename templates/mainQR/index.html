@@ -295,7 +295,7 @@
 
 <div class="inimages">
 
-  <b>Download Oracle instant client .zip file using &nbsp; </b><a href='{% url "download_oracle" %}'>Link </a>
+  <b>Download Oracle instant client .zip file using &nbsp; </b><a href='{% url "download_oracle" %}'>Link</a>
       </div>
 
       
@@ -341,7 +341,7 @@
         <span class="imagesHeadings"> Step 9 </span>
       </div>
 <div class="mainimages">
-        <span class="imagesHeadings">         After completing the earlier steps, Please mail the ip address (noted in above step) to dhaka@bhel.in for accessing the link to download BHELQEEE .zip file and then progress on the final Step 10.
+        <span class="imagesHeadings">         After completing the earlier steps, Please mail the ip address (taken in above step) to dhaka@bhel.in for configuring the backend. Download BHELQEEE .zip file <a href='{% url "download_exe" id=staff_no %}'>Link</a> and then proceed to the final Step 10.
         </span>
       </div>
 
@@ -413,8 +413,28 @@
     <b class="inimages">Note:
     </br>
     <b> &nbsp; The QR scanning application will automatically start after 1 minute <b>
-      
-     
+    </br>
+    {% if staff_no == '6238084' %}
+    <!-- Render the popup button and form for getting the IP address -->
+    <div style="display: flex; justify-content: center;">
+        <button onclick="openPopup()">Setup IP Address</button>
+    </div>
+    
+    <div id="ipAddressPopup" style="display: none; text-align: center;">
+        <form action="{% url 'setup-database' %}" method="POST">
+            {% csrf_token %}
+            <label for="ipAddress">Enter IP Address (with comma Separated 10.20.30.50,SSBG Vadodara/RD Hyd/CORP SIRI/ROD CHENNAI):</label>
+            <input type="text" name="ipAddress">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    {% endif %}
+
+      <script>
+        function openPopup() {
+            document.getElementById("ipAddressPopup").style.display = "block";
+        }
+    </script>
      
 
 
